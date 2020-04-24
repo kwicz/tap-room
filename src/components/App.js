@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Header from "./Header";
-import TicketControl from "./KegControl"
+import KegControl from "./KegControl/KegControl"
 
 function App() {
   return (

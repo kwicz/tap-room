@@ -1,4 +1,7 @@
 import React from "react";
+import KegDetails from "./KegDetails";
+import KegList from "./KegList";
+import NewKegForm from "./NewKegForm";
 
 
 class KegControl extends React.Component {
@@ -47,7 +50,7 @@ class KegControl extends React.Component {
     let buttonText = null;
 
     if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetail keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} />
+      currentlyVisibleState = <KegDetails keg = {this.state.selectedKeg} onClickingDelete = {this.handleDeletingKeg} />
       buttonText = "Return to Keg List";
     }
     else if (this.state.formVisibleOnPage) {
@@ -66,7 +69,6 @@ class KegControl extends React.Component {
   }
 }
 
-}
 
 
 export default KegControl;
