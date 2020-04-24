@@ -1,6 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tap Room Inventory
 
-## Available Scripts
+#### A web application to help tap room workers manage their keg inventory.
+
+#### By K. Wicz
+
+## Components Hierarchy
+
+![Diagram](public/TapRoomDiagram.png)
+
+## Site Components Wireframe
+![Wireframe](public/TapRoomWireframe.png)
+
+## Setup/Installation Requirements
 
 In the project directory, you can run:
 
@@ -37,32 +48,14 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Support and Contact Details
+_Have a bug or an issue with this application? [Open a new issue](https://github.com/benjamin-thompdx/social-media-clone/issues) here on GitHub._
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies Used
+* This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2020 **_K. Wicz_**
