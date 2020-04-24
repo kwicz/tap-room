@@ -2,6 +2,7 @@ import React from "react";
 import KegDetails from "./KegDetails";
 import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
+import EditKegForm from "./EditKegForm";
 
 
 class KegControl extends React.Component {
@@ -10,7 +11,15 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [],
+      masterKegList: [
+        {
+          name: "Banana Beer",
+          brand: "Solovewicz Brewing",
+          alcoholContent: "4%",
+          price: 5,
+          remainingPints: 124
+        }
+      ],
       selectedKeg: null,
       editing: false
     };
@@ -23,15 +32,30 @@ class KegControl extends React.Component {
   }
 
   handleEditClick = () => {
-    this.state({editing: true});
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
+  }
+
+  handleEditingKegInList = (kegToEdit) => {
+    const editedMasterKegList = this.state.masterKegList
+      .filter(keg => keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+        masterKegList: editedMasterKegList,
+        editing: false,
+        selectedKeg: null
+      });
   }
 
   handleOrderingPint = (id, remainingPints) => {
     const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
     const updatedPints = selectedKeg.remainingPints - 1;
-    const updatedKeg = 
-    this.setState({selectedKeg: selectedKeg});
-
+    const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
+    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    this.setState({
+      masterKegList: [...kegList, updatedKeg],
+      selectedKeg: updatedKeg
+    });
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -63,7 +87,7 @@ class KegControl extends React.Component {
     let buttonText = null;
 
     if (this.state.editing ) {      
-      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} />
+      currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetails keg = {this.state.selectedKeg} 
