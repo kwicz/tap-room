@@ -11,6 +11,15 @@
 ## Site Components Wireframe
 ![Wireframe](public/TapRoomWireframe.png)
 
+## User Stories
+
+|Component|Story|
+|:---:|:---|
+|![Landing Page](public/LandingPage.png)|As a user, I want to immediately be able to see all my available kegs upon loading the page. I also want immediate access to a form to add a new keg, sell a pint from an existing keg, and view a keg's details.|
+|![Add Keg](public/AddKeg.png)|As a user, I want to be able to add a name, a brand, a description, alcohol content, and price per pint to a new keg when I add it to the system.|
+|![Keg Details](public/Details.png)|As a user, I want to be able to view the details of a keg, while also be able to sell a pint from it, update it, and remove it from the system.|
+|![Update Keg](public/UpdateKeg.png)|As a user, I want to be able to update any of the information about my kegs.|
+
 ## Setup/Installation Requirements
 
 In the project directory, you can run:

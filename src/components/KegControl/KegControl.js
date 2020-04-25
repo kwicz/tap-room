@@ -134,7 +134,6 @@ class KegControl extends React.Component {
       maxWidth: 345,
       marginLeft: "auto",
       marginRight: "auto",
-      marginTop:100,
       borderRadius:4,
       width:150,
         /* Basic styling and alignment */
@@ -149,7 +148,7 @@ class KegControl extends React.Component {
     if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
       buttonIcon = <ArrowBackIos />;
-      buttonText = "Return to Keg List";
+      buttonText = "Return to Keg Details";
     } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetails keg = {this.state.selectedKeg} 
       onClickingOrder = {this.handleOrderingPint}
