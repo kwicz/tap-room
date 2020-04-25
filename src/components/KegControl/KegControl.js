@@ -15,6 +15,7 @@ class KegControl extends React.Component {
         {
           name: "Banana Beer",
           brand: "Solovewicz Brewing",
+          description: "Fruity, but in a dog kind of way.",
           alcoholContent: "4%",
           price: 5,
           remainingPints: 124
