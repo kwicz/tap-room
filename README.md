@@ -53,7 +53,9 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 
 ## Technologies Used
 * This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-* [RMWC](https://rmwc.io/), A React UI Kit built on Google's official Material Components Web library.
+* [Material-UI](https://material-ui.com/), A React UI Kit built on Google's official Material Components Web library.
+* [Neumorpism Tutorial](https://uxplanet.org/neumorphism-in-user-interface-tutorial-c353698ac5c0) by Kanhaiya Sharma
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -5,18 +5,25 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import LocalDrink from '@material-ui/icons/LocalDrink';
+import AttachMoney from '@material-ui/icons/AttachMoney';
+import Clear from '@material-ui/icons/Clear';
+import Create from '@material-ui/icons/Create';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-  },
-    avatar: {
-    backgroundColor: red[500],
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop:100,
+    borderRadius:4,
+    width: 300,
+      /* Basic styling and alignment */
+    /* For Neumorphism Effect */
+    backgroundColor: "#E0E5EC",
+    boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
+      /* For Neumorphism Effect */
   }
 }));
 
@@ -28,34 +35,29 @@ function KegDetails(props) {
     <React.Fragment>
       <Card className={classes.root}>
         <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              <LocalDrink />
-            </Avatar>
-          }
           title={keg.name}
           subheader={keg.brand}
         />
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-           {keg.alcoholContent}
+           {keg.alcoholContent} ALCOHOL CONTENT
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-           Pints remaining in this keg: {keg.remainingPints}
+           {keg.remainingPints} REMAINING PINTS
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-           ${keg.price}.00 per pint
+           ${keg.price}.00 PER PINT
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <button onClick={()=> onClickingOrder(keg.id, keg.remainingPints) }>Order Pint</button>
+        <CardActions>
+          <IconButton onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
+            <AttachMoney />
           </IconButton>
-          <IconButton aria-label="share">
-            <button onClick={ props.onClickingEdit }>Update Keg</button>
+          <IconButton onClick={ props.onClickingEdit } aria-label="share">
+            <Create />
           </IconButton>
-          <IconButton aria-label="share">
-          <button onClick={()=> onClickingDelete(keg.id) }>Delete this Keg</button>
+          <IconButton onClick={()=> onClickingDelete(keg.id) }aria-label="share">
+            <Clear />
           </IconButton>
         </CardActions>
       </Card>

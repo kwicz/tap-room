@@ -21,7 +21,9 @@ class KegControl extends React.Component {
           description: "Fruity, but in a dog kind of way.",
           alcoholContent: "4%",
           price: 5,
-          remainingPints: 124
+          remainingPints: 124,
+          key: 1,
+          id: 1
         },
         {
           name: "Sneaky Sasquatch",
@@ -29,7 +31,9 @@ class KegControl extends React.Component {
           description: "Pungent and hoppy.",
           alcoholContent: "8%",
           price: 11,
-          remainingPints: 124
+          remainingPints: 124,
+          key: 2,
+          id: 2
         },
         {
           name: "Baby Beer",
@@ -37,7 +41,19 @@ class KegControl extends React.Component {
           description: "Watery and sweet.",
           alcoholContent: "0%",
           price: 3,
-          remainingPints: 124
+          remainingPints: 124,
+          key: 3,
+          id: 3
+        },
+        {
+          name: "Ronny Bicycle",
+          brand: "Pedalwerks",
+          description: "A little metallic tasting, but it goes down fast",
+          alcoholContent: "4%",
+          price: 5,
+          remainingPints: 124,
+          key: 4,
+          id: 4
         }
       ],
       selectedKeg: null,
