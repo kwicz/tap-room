@@ -1,21 +1,15 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import LocalDrink from '@material-ui/icons/LocalDrink';
+import AttachMoney from '@material-ui/icons/AttachMoney';
+import List from '@material-ui/icons/List';
+import IconButton from '@material-ui/core/IconButton';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,14 +19,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop:100,
     borderRadius:4,
     width:150,
-    height:150,
+    height:250,
       /* Basic styling and alignment */
     /* For Neumorphism Effect */
     backgroundColor: "#E0E5EC",
     boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
       /* For Neumorphism Effect */
   },
-  avatar: {
+  IconButton: {
     backgroundColor: red[500],
   },
 }));
@@ -42,16 +36,21 @@ function Keg(props) {
 
   return (
     <React.Fragment>
-      <Card onClick = {() => props.whenKegClicked(props.id)} className={classes.root}>
+      <Card className={classes.root}>
         <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              <LocalDrink />
-            </Avatar>
-          }
           title={props.name}
-          subheader={props.brand}
         />
+        <CardContent>
+          {props.remainingPints} remainingPints
+        </CardContent>
+        <CardActionArea>
+          <IconButton onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
+            <AttachMoney />
+          </IconButton>
+          <IconButton onClick = {() => props.whenKegClicked(props.id)} >
+            <List />
+          </IconButton>
+        </CardActionArea>
       </Card>
     </React.Fragment>
   );
@@ -66,7 +65,8 @@ Keg.propTypes = {
   price: PropTypes.number,
   remainingPints: PropTypes.number,
   id: PropTypes.string,
-  whenKegClicked: PropTypes.func
+  whenKegClicked: PropTypes.func,
+  onClickingOrder: PropTypes.func
 };
 
 export default Keg;

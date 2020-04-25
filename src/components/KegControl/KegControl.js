@@ -3,6 +3,9 @@ import KegDetails from "./KegDetails";
 import KegList from "./KegList";
 import NewKegForm from "./NewKegForm";
 import EditKegForm from "./EditKegForm";
+import Button from '@material-ui/core/Button';
+import Add from '@material-ui/icons/Add';
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 
 
 class KegControl extends React.Component {
@@ -18,6 +21,22 @@ class KegControl extends React.Component {
           description: "Fruity, but in a dog kind of way.",
           alcoholContent: "4%",
           price: 5,
+          remainingPints: 124
+        },
+        {
+          name: "Sneaky Sasquatch",
+          brand: "Bigfoot Beer",
+          description: "Pungent and hoppy.",
+          alcoholContent: "8%",
+          price: 11,
+          remainingPints: 124
+        },
+        {
+          name: "Baby Beer",
+          brand: "Cute Kid Company",
+          description: "Watery and sweet.",
+          alcoholContent: "0%",
+          price: 3,
           remainingPints: 124
         }
       ],
@@ -48,7 +67,7 @@ class KegControl extends React.Component {
       });
   }
 
-  handleOrderingPint = (id, remainingPints) => {
+  handleOrderingPint = (id) => {
     const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
     const updatedPints = selectedKeg.remainingPints - 1;
     const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
@@ -56,6 +75,17 @@ class KegControl extends React.Component {
     this.setState({
       masterKegList: [...kegList, updatedKeg],
       selectedKeg: updatedKeg
+    });
+  }
+
+  handleQuickOrder = (id) => {
+    const selectedKeg = this.state.masterKegList.filter(keg => keg.id ===id)[0];
+    const updatedPints = selectedKeg.remainingPints - 1;
+    const updatedKeg = {...selectedKeg, remainingPints: updatedPints};
+    const kegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    this.setState({
+      masterKegList: [...kegList, updatedKeg],
+      selectedKeg: null
     });
   }
 
@@ -84,30 +114,52 @@ class KegControl extends React.Component {
   }
 
   render() {
+    const styledButton = {
+      maxWidth: 345,
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop:100,
+      borderRadius:4,
+      width:150,
+        /* Basic styling and alignment */
+      /* For Neumorphism Effect */
+      backgroundColor: "#E0E5EC",
+      boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
+    }
     let currentlyVisibleState = null;
     let buttonText = null;
+    let buttonIcon = null;
 
     if (this.state.editing ) {      
       currentlyVisibleState = <EditKegForm keg = {this.state.selectedKeg} onEditKeg = {this.handleEditingKegInList} />
+      buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg List";
     } else if (this.state.selectedKeg != null) {
       currentlyVisibleState = <KegDetails keg = {this.state.selectedKeg} 
       onClickingOrder = {this.handleOrderingPint}
       onClickingDelete = {this.handleDeletingKeg}
       onClickingEdit = {this.handleEditClick} />
+      buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg List";
     }
     else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />;
+      buttonIcon = <ArrowBackIos />;
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />;
-      buttonText = "Add Keg";
+      currentlyVisibleState = <KegList kegList={this.state.masterKegList}
+      onClickingOrder= {this.handleQuickOrder}
+      onKegSelection={this.handleChangingSelectedKeg} />;
+      buttonText = "Add A Keg";
+      buttonIcon = <Add />;
     }
     return (
       <React.Fragment>
+        <Button onClick={this.handleClick} style={styledButton}>
+          {buttonIcon}
+          {buttonText}
+        </Button>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
       </React.Fragment>
     );
   }
