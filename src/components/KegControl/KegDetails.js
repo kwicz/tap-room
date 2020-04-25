@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import AttachMoney from '@material-ui/icons/AttachMoney';
@@ -16,9 +15,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop:100,
+    marginBottom:100,
+    marginTop:50,
     borderRadius:4,
     width: 300,
+    height: 250,
       /* Basic styling and alignment */
     /* For Neumorphism Effect */
     backgroundColor: "#E0E5EC",
@@ -30,6 +31,11 @@ const useStyles = makeStyles((theme) => ({
 function KegDetails(props) {
   const { keg, onClickingDelete, onClickingOrder } = props;
   const classes = useStyles();
+  const iconButtonStyle = {
+    backgroundColor: "#E0E5EC",
+    boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)",
+    margin: 6
+  }
 
   return (
     <React.Fragment>
@@ -49,17 +55,15 @@ function KegDetails(props) {
            ${keg.price}.00 PER PINT
           </Typography>
         </CardContent>
-        <CardActions>
-          <IconButton onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
+          <IconButton style={iconButtonStyle} onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
             <AttachMoney />
           </IconButton>
-          <IconButton onClick={ props.onClickingEdit } aria-label="share">
+          <IconButton style={iconButtonStyle} onClick={ props.onClickingEdit } aria-label="share">
             <Create />
           </IconButton>
-          <IconButton onClick={()=> onClickingDelete(keg.id) }aria-label="share">
+          <IconButton style={iconButtonStyle} onClick={()=> onClickingDelete(keg.id) }aria-label="share">
             <Clear />
           </IconButton>
-        </CardActions>
       </Card>
     </React.Fragment>
   );

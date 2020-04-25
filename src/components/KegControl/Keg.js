@@ -16,23 +16,26 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop:100,
+    marginTop:50,
     borderRadius:4,
     width:150,
-    height:250,
+    height:225,
       /* Basic styling and alignment */
     /* For Neumorphism Effect */
     backgroundColor: "#E0E5EC",
     boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
       /* For Neumorphism Effect */
-  },
-  IconButton: {
-    color: red
   }
 }));
 
+
 function Keg(props) {
   const classes = useStyles();
+  const iconButtonStyle = {
+    backgroundColor: "#E0E5EC",
+    boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)",
+    margin: 6
+  }
 
   return (
     <React.Fragment>
@@ -44,10 +47,10 @@ function Keg(props) {
           {props.remainingPints} pints left
         </CardContent>
         <CardActionArea>
-          <IconButton onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
+            <IconButton style={iconButtonStyle} onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
             <AttachMoney />
           </IconButton>
-          <IconButton onClick={() => props.whenKegClicked(props.id)} >
+          <IconButton style={iconButtonStyle} onClick={() => props.whenKegClicked(props.id)} >
             <List />
           </IconButton>
         </CardActionArea>

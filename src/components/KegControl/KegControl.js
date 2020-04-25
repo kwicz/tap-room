@@ -36,7 +36,7 @@ class KegControl extends React.Component {
           id: 2
         },
         {
-          name: "Baby Beer",
+          name: "Barnaby Beer",
           brand: "Cute Kid Company",
           description: "Watery and sweet.",
           alcoholContent: "0%",
