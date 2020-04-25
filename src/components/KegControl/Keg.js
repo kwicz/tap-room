@@ -20,6 +20,17 @@ import LocalDrink from '@material-ui/icons/LocalDrink';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop:100,
+    borderRadius:4,
+    width:150,
+    height:150,
+      /* Basic styling and alignment */
+    /* For Neumorphism Effect */
+    backgroundColor: "#E0E5EC",
+    boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
+      /* For Neumorphism Effect */
   },
   avatar: {
     backgroundColor: red[500],
