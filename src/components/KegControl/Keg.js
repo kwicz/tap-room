@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
       /* For Neumorphism Effect */
   },
   IconButton: {
-    backgroundColor: red[500],
-  },
+    color: red
+  }
 }));
 
 function Keg(props) {
@@ -41,13 +41,13 @@ function Keg(props) {
           title={props.name}
         />
         <CardContent>
-          {props.remainingPints} remainingPints
+          {props.remainingPints} pints left
         </CardContent>
         <CardActionArea>
           <IconButton onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
             <AttachMoney />
           </IconButton>
-          <IconButton onClick = {() => props.whenKegClicked(props.id)} >
+          <IconButton onClick={() => props.whenKegClicked(props.id)} >
             <List />
           </IconButton>
         </CardActionArea>
