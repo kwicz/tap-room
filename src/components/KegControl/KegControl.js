@@ -16,9 +16,9 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       masterKegList: [
         {
-          name: "Banana Beer",
+          name: "Banana Belgium Ale",
           brand: "Solovewicz Brewing",
-          description: "Fruity, but in a dog kind of way.",
+          description: "Fruity, but in a canine kind of way.",
           alcoholContent: "4%",
           price: 5,
           remainingPints: 0,
@@ -26,9 +26,9 @@ class KegControl extends React.Component {
           id: 1
         },
         {
-          name: "Sneaky Sasquatch",
-          brand: "Bigfoot Beer",
-          description: "Pungent and hoppy.",
+          name: "Sneaky Sasquatch Stout",
+          brand: "Bigfoot Fermentorium",
+          description: "Pungent.",
           alcoholContent: "8%",
           price: 11,
           remainingPints: 124,
@@ -36,24 +36,46 @@ class KegControl extends React.Component {
           id: 2
         },
         {
-          name: "Barnaby Beer",
-          brand: "Cute Kid Company",
-          description: "Watery and sweet.",
-          alcoholContent: "0%",
-          price: 3,
+          name: "Calvin & Hobbes Pale Ale",
+          brand: "Watterson Werks",
+          description: "Blonde with notes of childhood.",
+          alcoholContent: "5%",
+          price: 6,
           remainingPints: 124,
           key: 3,
           id: 3
         },
         {
-          name: "Ronny Bicycle",
-          brand: "Pedalwerks",
-          description: "A little metallic tasting, but it goes down fast",
+          name: "Goat Lords Cider",
+          brand: "Wild Animal Werks",
+          description: "Maaahhhhy favorite cider.",
           alcoholContent: "4%",
           price: 5,
           remainingPints: 124,
           key: 4,
           id: 4
+        }
+        },
+        {
+          name: "Dinosaur Double IPA",
+          brand: "Limited Edition.  Try it before it goes exctinct.",
+          description: "",
+          alcoholContent: "9%",
+          price: 8,
+          remainingPints: 124,
+          key: 5,
+          id: 5
+        }
+        },
+        {
+          name: "Mary Poppins Hard Kombucha",
+          brand: "Sister Suffragettes, inc.",
+          description: "Nearly perfect in every way.",
+          alcoholContent: "3%",
+          price: 7,
+          remainingPints: 124,
+          key: 6,
+          id: 6
         }
       ],
       selectedKeg: null,
