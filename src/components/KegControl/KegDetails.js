@@ -45,7 +45,7 @@ function KegDetails(props) {
   }
   let orderButton = <IconButton 
     style={iconButtonStyle} 
-    onClick={()=> keg.onClickingOrder(keg.id, keg.remainingPints)}>
+    onClick={()=> onClickingOrder(keg.id)}>
       <AttachMoney />
     </IconButton>;
   let pintsRemaing = <Typography variant="body2" color="textSecondary" component="p">
@@ -55,7 +55,7 @@ function KegDetails(props) {
     orderButton = <IconButton 
       style={iconButtonStyleDisabled} 
       disabled
-      onClick={()=> keg.onClickingOrder(keg.id, keg.remainingPints)}>
+      onClick={()=> onClickingOrder(keg.id)}>
         <AttachMoney />
       </IconButton>;
     pintsRemaing = <Typography variant="body2" color="textSecondary" component="p">
