@@ -21,7 +21,7 @@ class KegControl extends React.Component {
           description: "Fruity, but in a dog kind of way.",
           alcoholContent: "4%",
           price: 5,
-          remainingPints: 124,
+          remainingPints: 0,
           key: 1,
           id: 1
         },

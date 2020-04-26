@@ -37,6 +37,31 @@ function KegDetails(props) {
     margin: 6,
     color: "#e53935"
   }
+  const iconButtonStyleDisabled = {
+    backgroundColor: "#E0E5EC",
+    boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)",
+    margin: 6,
+    color: "rgb(163,177,198,0.6)"
+  }
+  let orderButton = <IconButton 
+    style={iconButtonStyle} 
+    onClick={()=> keg.onClickingOrder(keg.id, keg.remainingPints)}>
+      <AttachMoney />
+    </IconButton>;
+  let pintsRemaing = <Typography variant="body2" color="textSecondary" component="p">
+      ${keg.price}.00 PER PINT
+    </Typography>
+  if (keg.remainingPints == 0) {
+    orderButton = <IconButton 
+      style={iconButtonStyleDisabled} 
+      disabled
+      onClick={()=> keg.onClickingOrder(keg.id, keg.remainingPints)}>
+        <AttachMoney />
+      </IconButton>;
+    pintsRemaing = <Typography variant="body2" color="textSecondary" component="p">
+    SOLD OUT
+  </Typography>;
+  }
 
   return (
     <React.Fragment>
@@ -52,13 +77,9 @@ function KegDetails(props) {
           <Typography variant="body2" color="textSecondary" component="p">
            {keg.remainingPints} REMAINING PINTS
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-           ${keg.price}.00 PER PINT
-          </Typography>
+          {pintsRemaing}
         </CardContent>
-          <IconButton style={iconButtonStyle} onClick={()=> props.onClickingOrder(props.id, props.remainingPints)}>
-            <AttachMoney />
-          </IconButton>
+          {orderButton}
           <IconButton style={iconButtonStyle} onClick={ props.onClickingEdit } aria-label="share">
             <Create />
           </IconButton>
