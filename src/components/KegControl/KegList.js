@@ -14,8 +14,8 @@ function KegList(props){
   const classes = useStyles();
 
   return (
-    <React.Fragment className={classes.root} >
-      <Grid container spacing={2}>
+    <React.Fragment  >
+      <Grid className={classes.root} container spacing={2}>
         {props.kegList.map((keg) =>
           <Grid item item xs={6} sm={4} md={3} lg={2}>
             <Keg 
@@ -23,7 +23,9 @@ function KegList(props){
               onClickingOrder = { props.onClickingOrder }
               name={keg.name}
               brand={keg.brand}
+              description={keg.description}
               alcoholContent={keg.alcoholContent}
+              price={keg.price}
               remainingPints={keg.remainingPints}
               id={keg.id}
               key={keg.id}/>

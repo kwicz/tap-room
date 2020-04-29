@@ -9,21 +9,17 @@ import AttachMoney from '@material-ui/icons/AttachMoney';
 import List from '@material-ui/icons/List';
 import IconButton from '@material-ui/core/IconButton';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
+    color: 'rgb(45,45,45,0.6)',
     maxWidth: 345,
     marginLeft: "auto",
     marginRight: "auto",
     marginTop:50,
     borderRadius:4,
     width:150,
-    height:225,
-      /* Basic styling and alignment */
-    /* For Neumorphism Effect */
     backgroundColor: "#E0E5EC",
     boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
-      /* For Neumorphism Effect */
   }
 }));
 
@@ -47,7 +43,7 @@ function Keg(props) {
       <AttachMoney />
     </IconButton>;
   let cardContent = <CardContent>{props.remainingPints} pints left</CardContent>;
-  if (props.remainingPints == 0) {
+  if (props.remainingPints === 0) {
     orderButton = <IconButton 
       style={iconButtonStyleDisabled} 
       disabled
@@ -77,12 +73,13 @@ function Keg(props) {
 
 
 Keg.propTypes = {
-  name: PropTypes.string,
-  brand: PropTypes.string,
-  description: PropTypes.string,
-  alcoholContent: PropTypes.string,
-  price: PropTypes.number,
+  name: PropTypes.string.isRequired,
+  brand: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  alcoholContent: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   remainingPints: PropTypes.number,
+  key: PropTypes.string,
   id: PropTypes.string,
   whenKegClicked: PropTypes.func,
   onClickingOrder: PropTypes.func

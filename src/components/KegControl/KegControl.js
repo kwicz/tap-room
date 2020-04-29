@@ -54,18 +54,16 @@ class KegControl extends React.Component {
           remainingPints: 124,
           key: 4,
           id: 4
-        }
         },
         {
           name: "Dinosaur Double IPA",
           brand: "Limited Edition.  Try it before it goes exctinct.",
-          description: "",
+          description: "RAWR.",
           alcoholContent: "9%",
           price: 8,
           remainingPints: 124,
           key: 5,
           id: 5
-        }
         },
         {
           name: "Mary Poppins Hard Kombucha",
@@ -153,6 +151,7 @@ class KegControl extends React.Component {
 
   render() {
     const styledButton = {
+      color: 'rgb(45,45,45,0.6)',
       maxWidth: 345,
       marginLeft: "auto",
       marginRight: "auto",

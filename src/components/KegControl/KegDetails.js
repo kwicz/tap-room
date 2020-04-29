@@ -19,12 +19,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop:50,
     borderRadius:4,
     width: 300,
-    height: 250,
-      /* Basic styling and alignment */
-    /* For Neumorphism Effect */
+    height: "auto",
     backgroundColor: "#E0E5EC",
     boxShadow: "9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px    rgba(255,255,255, 0.5)"
-      /* For Neumorphism Effect */
   }
 }));
 
@@ -51,7 +48,7 @@ function KegDetails(props) {
   let pintsRemaing = <Typography variant="body2" color="textSecondary" component="p">
       ${keg.price}.00 PER PINT
     </Typography>
-  if (keg.remainingPints == 0) {
+  if (keg.remainingPints === 0) {
     orderButton = <IconButton 
       style={iconButtonStyleDisabled} 
       disabled
